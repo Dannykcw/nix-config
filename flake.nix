@@ -6,8 +6,6 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    latex-flake.url = "path:/latex-flake";
-    latex-flake.inputs.nixpkgs.follows = "nixpkgs";
     # Optional: Declarative tap management
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -32,7 +30,6 @@
       homebrew-core,
       homebrew-cask,
       homebrew-bundle,
-      latex-flake,
     }:
     let
       configuration =
@@ -48,7 +45,6 @@
             pkgs.ninja
             pkgs.nixfmt-rfc-style
             pkgs.nixd
-            latex-flake.packages.${pkgs.system}.latexPackages
           ];
 
           homebrew = {
